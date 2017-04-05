@@ -1,0 +1,100 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <center><b>CRUD OPERATION</b></center>
+    </div>
+    <div class="panel-body">
+        <!-- //creating app and controller
+ -->
+        <div>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>First-Name</td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="item.fname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last-Name</td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="item.lname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>EmailID</td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="item.email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone-No</td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="item.phone" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="item.city" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right" colspan="2">
+                        <button ng-click="addItem(item)" class="btn btn-primary">
+                            Add
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>First-Name</th>
+                        <th>Last-Name</th>
+                        <th>EmailID</th>
+                        <th>Phone-No</th>
+                        <th>City</th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items" ng-class="{'selected':$index ==selectedRow}" ng-click="setClickedRow($index)">
+                        <td><span ng-hide="editMode">{{item.fname}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item.fname" />
+                        </td>
+                        <td>
+                            <span ng-hide="editMode">{{item.lname}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item.lname" />
+                        </td>
+                        <td>
+                            <span ng-hide="editMode">{{item.email}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item.email" />
+                        </td>
+                        <td>
+                            <span ng-hide="editMode">{{item.phone}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item.phone" />
+                        </td>
+                        <td>
+                            <span ng-hide="editMode">{{item.city}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item.city" />
+                        </td>
+                        <td>
+                            <i ng-hide="editMode" ng-click="editMode = true; editItem(item)" class="glyphicon glyphicon-edit"></i>
+                            <i class="glyphicon glyphicon-saved" ng-show="editMode" ng-click="editMode = false"></i>
+                        </td>
+                        <td>
+                            <i ng-click="removeItem($index)" class="glyphicon glyphicon-trash"></i>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-default btn-sm">
+                                <i ng-click="setClickedRow($index)" class="glyphicon glyphicon-tasks"></i>View
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
