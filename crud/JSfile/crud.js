@@ -9,7 +9,7 @@ app.config(function($routeProvider) {
                      templateUrl: 'partial/index.html',
                      controller: 'mainController'
                  })
-                 .when('/view', {
+                 .when('/view/:id', {
                      templateUrl: 'partial/view.html',
                      controller: 'detailController'
                  }).
@@ -42,11 +42,25 @@ app.config(function($routeProvider) {
         $location.path('/view')
      }
  });
-app.controller("detailController", function($scope, $location) {
+app.controller("detailController", function($scope, $location,$routeParams) {
     
      $scope.user=user;
-
+     for(var i=0;i<items.length;i++)
+     {
+     
+     if(items[i].email==$routeParams.id)
+     {
+        $scope.user=items[i];
+     }
+    }
     
  });
-
+// app.controller("detailController",['$scope','$http','$routeParams',
+//      function($scope, $http, $routeParams)
+//         {    
+//             $http.get('js/data.json').success (function(data){
+//                 $scope.user = data;
+//                 $scope.aee = $routeParams.id;
+//             }); 
+//         }])
 
