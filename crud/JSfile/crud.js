@@ -2,12 +2,12 @@
 
  var items=[]
  var user={};
- // {fname: "pankaj", lname: "rajwade", email: "pankajrajwade@gmail.com", phone: "9807654321", city: "Banglore"}
+
 app.config(function($routeProvider) {
              $routeProvider
              .when('/index', {
                      templateUrl: 'partial/index.html',
-                     controller: 'detailController'
+                     controller: 'mainController'
                  })
                  .when('/view', {
                      templateUrl: 'partial/view.html',
@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
                  });
          });
 
- app.controller("detailController", function($scope, $location) {
+ app.controller("mainController", function($scope, $location) {
      $scope.items = items;
      $scope.user=user;
      $scope.selectedRow =null;
@@ -41,6 +41,12 @@ app.config(function($routeProvider) {
         console.log(user);        
         $location.path('/view')
      }
+ });
+app.controller("detailController", function($scope, $location) {
+    
+     $scope.user=user;
+
+    
  });
 
 
