@@ -87,9 +87,7 @@
                             <i ng-click="removeItem($index)" class="glyphicon glyphicon-trash"></i>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-default btn-sm">
-                                <i ng-click="setClickedRow($index)" class="glyphicon glyphicon-tasks"></i>View
-                            </button>
+                            <a href="#/view/{{item.email}}">View</a>
                         </td>
                     </tr>
                 </tbody>
@@ -97,4 +95,3 @@
         </div>
     </div>
 </div>
-
