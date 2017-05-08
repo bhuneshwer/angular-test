@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <td class="text-right" colspan="2">
-                        <button ng-click="addItem(item)" class="btn btn-primary">
+                        <button ng-click="addItem()" class="btn btn-primary">
                             Add
                         </button>
                     </td>
@@ -59,35 +59,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="item in items" ng-class="{'selected':$index ==selectedRow}" ng-click="setClickedRow($index)">
-                        <td><span ng-hide="editMode">{{item.fname}}</span>
-                            <input type="text" ng-show="editMode" ng-model="item.fname" />
+                    <tr ng-repeat="item1 in items track by $index" ng-class="{'selected':$index ==selectedRow}" ng-click="setClickedRow($index)">
+                        <td><span ng-hide="editMode">{{item1.fname}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item1.fname" />
                         </td>
                         <td>
-                            <span ng-hide="editMode">{{item.lname}}</span>
-                            <input type="text" ng-show="editMode" ng-model="item.lname" />
+                            <span ng-hide="editMode">{{item1.lname}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item1.lname" />
                         </td>
                         <td>
-                            <span ng-hide="editMode">{{item.email}}</span>
-                            <input type="text" ng-show="editMode" ng-model="item.email" />
+                            <span ng-hide="editMode">{{item1.email}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item1.email" />
                         </td>
                         <td>
-                            <span ng-hide="editMode">{{item.phone}}</span>
-                            <input type="text" ng-show="editMode" ng-model="item.phone" />
+                            <span ng-hide="editMode">{{item1.phone}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item1.phone" />
                         </td>
                         <td>
-                            <span ng-hide="editMode">{{item.city}}</span>
-                            <input type="text" ng-show="editMode" ng-model="item.city" />
+                            <span ng-hide="editMode">{{item1.city}}</span>
+                            <input type="text" ng-show="editMode" ng-model="item1.city" />
                         </td>
                         <td>
-                            <i ng-hide="editMode" ng-click="editMode = true; editItem(item)" class="glyphicon glyphicon-edit"></i>
-                            <i class="glyphicon glyphicon-saved" ng-show="editMode" ng-click="editMode = false"></i>
+                            <i ng-hide="editMode" ng-click="editMode = true; setUserId($index)" class="glyphicon glyphicon-edit"></i>
+                            <i class="glyphicon glyphicon-saved" ng-show="editMode" ng-click=" editItem(item1)"></i>
                         </td>
                         <td>
                             <i ng-click="removeItem($index)" class="glyphicon glyphicon-trash"></i>
                         </td>
                         <td>
-                            <a href="#/view/{{item.email}}">View</a>
+                            <a href="#/view/{{item1.email}}">View</a>
                         </td>
                     </tr>
                 </tbody>
